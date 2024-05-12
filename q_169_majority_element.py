@@ -4,24 +4,10 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        n_maj = nums[0]
-        max_freq = 1
-
         ##################################################
         # Solution 2, use sort first, time O(n log n), space O(1)
         nums.sort()
-        print(nums) # Makesure sort correctly
-        freq = 1
-        for i in range(1, len(nums)):
-            if nums[i] == nums[i-1]:
-                freq += 1
-            else:
-                if freq > max_freq:
-                    n_maj = nums[i-1]
-                    max_freq = freq
-                freq = 1
-        if freq > max_freq:
-            n_maj = nums[-1]
+        n_maj = nums[len(nums)//2]
         ##################################################
 
         ##################################################

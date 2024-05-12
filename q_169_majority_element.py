@@ -7,18 +7,18 @@ class Solution(object):
 
         ##################################################
         # Solution 3, moore voting algo
-        candidate = nums[0]
-        vote = 1
-        for n in nums:
-            if n == candidate:
-                vote += 1
-            else:
-                vote -= 1
-                if vote == 0:
-                    candidate = n
-                    vote = 1
+        # candidate = nums[0]
+        # vote = 1
+        # for n in nums:
+        #     if n == candidate:
+        #         vote += 1
+        #     else:
+        #         vote -= 1
+        #         if vote == 0:
+        #             candidate = n
+        #             vote = 1
 
-        return candidate
+        # return candidate
 
         ##################################################
         
@@ -31,16 +31,17 @@ class Solution(object):
 
         ##################################################
         # Solution 1, use dict, time O(n), space O(n)
-        # count = {}
-        # for n in nums:
-        #     if n in count:
-        #         count[n] += 1
-        #         if count[n] > max_freq:
-        #             max_freq = count[n]
-        #             n_maj = n
-        #     else:
-        #         count[n] = 1
-        # return n_maj
-        ##################################################
-
+        count = {}
+        n_maj = nums[0]
+        max_freq = 1
         
+        for n in nums:
+            if n in count:
+                count[n] += 1
+                if count[n] > max_freq:
+                    max_freq = count[n]
+                    n_maj = n
+            else:
+                count[n] = 1
+        return n_maj
+        ##################################################

@@ -33,14 +33,15 @@ class Solution(object):
         # Solution 1, use dict, time O(n), space O(n)
         count = {}
         n_maj = nums[0]
-        max_freq = 1
+        # The threshold is KNOWN from problem description
+        freq_threshold = len(nums) // 2
         
         for n in nums:
             if n in count:
                 count[n] += 1
-                if count[n] > max_freq:
-                    max_freq = count[n]
+                if count[n] > freq_threshold:
                     n_maj = n
+                    break
             else:
                 count[n] = 1
         return n_maj

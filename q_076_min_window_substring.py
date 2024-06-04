@@ -5,15 +5,11 @@ class Solution(object):
     #             Because dict <--> dict itself is O(n) time
 
     def add_to_dict(self, window_dict, c):
-        if c in window_dict:
-            window_dict[c] = window_dict[c] + 1
-        else:
-            window_dict[c] = 1
+        window_dict[c] = window_dict.get(c, 0) + 1
             
     def del_from_dict(self, window_dict, c):
-        if window_dict[c] > 1:
-            window_dict[c] = window_dict[c] - 1
-        else:
+        window_dict[c] = window_dict[c] - 1
+        if window_dict[c] == 0:
             del window_dict[c]
             
     def minWindow(self, s, t):
